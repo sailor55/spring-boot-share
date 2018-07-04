@@ -7,6 +7,8 @@
  */
 package com.share.demo;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,8 +17,15 @@ import org.springframework.web.bind.annotation.RestController;
  * @version V1.0
  * @since 2018-07-04 22:06
  */
-@RestController
+@Controller
 public class HelloWorldController {
+
+    @RequestMapping("/")
+    public String index(ModelMap map) {
+        map.addAttribute("host", "http://localhost:8080/caidaoanxiang.jpg");
+        return "index";
+    }
+
     @RequestMapping("/hello")
     public String index() {
         return "Hello World";
